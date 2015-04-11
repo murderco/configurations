@@ -1,0 +1,14 @@
+# pip should only run if there is a virtualenv currently activated
+export PIP_REQUIRE_VIRTUALENV=true
+# cache pip-installed packages to avoid re-downloading
+export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
+
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/workspace
+source /usr/local/bin/virtualenvwrapper.sh
+
+function greppy() { find . -name '*.py' -exec grep -nHr --color "$1" {} \; ; }
+function grepcy() { find . -name '*.pyx' -exec grep -nHr --color "$1" {} \; ; }
+#export PIP_VIRTUALENV_BASE=$WORKON_HOME
+#export PIP_RESPECT_VIRTUALENV=true
+#proj_name=$(basename $VIRTUAL_ENV)

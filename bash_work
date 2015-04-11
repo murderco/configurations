@@ -1,0 +1,7 @@
+
+# work exports
+
+export P4CONFIG=.p4config
+export P4EDITOR=vim
+export EDITOR=vim
+

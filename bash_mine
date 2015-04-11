@@ -1,0 +1,26 @@
+# add ~/bin to PATH
+export PATH=~/bin:$PATH
+
+
+# pip should only run if there is a virtualenv currently activated
+export PIP_REQUIRE_VIRTUALENV=true
+# cache pip-installed packages to avoid re-downloading
+export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
+
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/directory-you-do-development-in
+source /usr/local/bin/virtualenvwrapper.sh
+
+function greppy() { find . -name '*.py' -exec grep -nHr --color "$1" {} \; ; }
+function grepcy() { find . -name '*.pyx' -exec grep -nHr --color "$1" {} \; ; }
+
+cd () {
+    if (( $# == 0 ))
+    then
+        builtin cd $VIRTUAL_ENV
+    else
+        builtin cd "$@"
+    fi
+}
+
+cd
